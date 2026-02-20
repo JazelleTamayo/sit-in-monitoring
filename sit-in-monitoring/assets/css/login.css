@@ -1,0 +1,358 @@
+/* Login Page Specific Styles */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-container {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* Left Side */
+.login-left {
+    flex: 1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.left-content {
+    text-align: center;
+    color: white;
+}
+
+.college-logo {
+    margin-bottom: 1.5rem;
+}
+
+.college-logo img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 4px solid rgba(255,255,255,0.3);
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.left-content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+}
+
+.left-content .motto {
+    font-size: 1rem;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Right Side */
+.login-right {
+    flex: 1;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 320px;
+}
+
+.form-container h2 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 0.2rem;
+}
+
+.form-container .subtitle {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    color: #555;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 2px rgba(102,126,234,0.1);
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+/* Password Field */
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-right: 2.5rem;
+}
+
+.toggle-pwd {
+    position: absolute;
+    right: 0.8rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Form Row */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+    font-size: 0.8rem;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #666;
+    cursor: pointer;
+}
+
+.remember input[type="checkbox"] {
+    width: auto;
+    cursor: pointer;
+}
+
+.forgot-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 0.7rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 1rem;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102,126,234,0.3);
+}
+
+/* Register Text */
+.register-text {
+    text-align: center;
+    color: #666;
+    font-size: 0.8rem;
+}
+
+.register-text a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}
+
+/* Alerts */
+.alert {
+    padding: 0.7rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.alert.error {
+    background: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+.alert.success {
+    background: #dcfce7;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        max-width: 400px;
+    }
+    
+    .login-left {
+        padding: 2rem 1.5rem;
+    }
+    
+    .college-logo img {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .left-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .login-right {
+        padding: 2rem 1.5rem;
+    }
+}
+
+
+/* Login page specific animations */
+
+/* Left panel slide in */
+.login-left {
+    animation: slideFromLeft 0.6s ease-out;
+}
+
+@keyframes slideFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Right panel slide in */
+.login-right {
+    animation: slideFromRight 0.6s ease-out;
+}
+
+@keyframes slideFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Form elements staggered animation */
+.form-group {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.2s; }
+.form-group:nth-child(2) { animation-delay: 0.3s; }
+.form-row { animation-delay: 0.4s; }
+.login-btn { animation-delay: 0.5s; }
+.register-text { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Eye icon animation */
+.toggle-pwd {
+    transition: all 0.3s ease;
+}
+
+.toggle-pwd:hover {
+    transform: translateY(-50%) scale(1.1);
+    color: var(--secondary-color);
+}
+
+.toggle-pwd:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* Remember me checkbox animation */
+.remember {
+    transition: all 0.3s ease;
+}
+
+.remember:hover {
+    transform: translateX(5px);
+}
+
+/* Forgot link hover effect */
+.forgot-link {
+    position: relative;
+    overflow: hidden;
+}
+
+.forgot-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.forgot-link:hover::after {
+    transform: translateX(0);
+}
