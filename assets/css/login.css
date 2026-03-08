@@ -1,0 +1,502 @@
+/* Login Page Specific Styles - Fully Matched with Homepage Theme */
+
+:root {
+    --primary-color: #0f172a;      /* Deep navy */
+    --secondary-color: #1e293b;    /* Slightly lighter navy */
+    --accent-color: #06b6d4;       /* Bright cyan */
+    --accent-glow: rgba(6, 182, 212, 0.25);
+    --success-color: #10b981;      /* Emerald green */
+    --light-bg: #f8fafc;
+    --dark-text: #0f172a;
+    --light-text: #475569;
+    --white: #ffffff;
+    --shadow: 0 15px 30px -10px rgba(15, 23, 42, 0.1);
+    --shadow-hover: 0 25px 40px -12px rgba(15, 23, 42, 0.25);
+    --border-radius: 24px;
+    --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px 20px;
+    position: relative;
+    background: linear-gradient(135deg, #e2e9f3 0%, #d3deec 100%);
+    overflow: hidden;
+}
+
+/* Subtle background pattern (matching homepage) */
+.login-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(45deg, 
+            rgba(6, 182, 212, 0.02) 0px, 
+            rgba(6, 182, 212, 0.02) 1px,
+            transparent 1px, 
+            transparent 12px),
+        radial-gradient(circle at 20% 30%, rgba(6,182,212,0.05) 0%, transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(15,23,42,0.04) 0%, transparent 35%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Soft floating orbs */
+.login-page::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 60vmax;
+    height: 60vmax;
+    background: radial-gradient(circle, rgba(6,182,212,0.03) 0%, transparent 65%);
+    border-radius: 50%;
+    z-index: 0;
+    animation: float 40s infinite alternate ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-2%, -2%) scale(1.02); }
+}
+
+.login-container {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    background: white;
+    border-radius: 48px;
+    overflow: hidden;
+    box-shadow: var(--shadow-hover);
+    position: relative;
+    z-index: 2;
+    border: 1px solid rgba(255,255,255,0.7);
+    backdrop-filter: blur(8px);
+}
+
+/* Gradient border effect (same as welcome-card) */
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(145deg, var(--accent-color), transparent 40%, var(--primary-color));
+    border-radius: 50px;
+    z-index: -1;
+    opacity: 0.25;
+    transition: opacity 0.4s ease;
+}
+
+.login-container:hover::before {
+    opacity: 0.5;
+}
+
+/* Inner glow */
+.login-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 48px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8);
+    pointer-events: none;
+}
+
+/* Left Side - Dark Theme with enhanced styling */
+.login-left {
+    flex: 1;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    animation: slideFromLeft 0.6s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Floating shape inside left side (like welcome-card) */
+.login-left::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(6,182,212,0.1) 0%, transparent 80%);
+    border-radius: 50%;
+    z-index: 0;
+    animation: floatLeft 10s infinite ease-in-out;
+}
+
+@keyframes floatLeft {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    50% { transform: translateY(-15px) translateX(10px); }
+}
+
+/* Inner glow overlay */
+.login-left::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(6,182,212,0.1) 0%, transparent 90%);
+    pointer-events: none;
+}
+
+.left-content {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.college-logo {
+    margin-bottom: 1.5rem;
+    animation: floatLogo 6s infinite ease-in-out;
+}
+
+.college-logo img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 3px solid rgba(255,255,255,0.2);
+    object-fit: cover;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease;
+}
+
+.college-logo img:hover {
+    transform: scale(1.05);
+}
+
+.left-content h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    letter-spacing: -0.02em;
+}
+
+.left-content .motto {
+    font-size: 1rem;
+    font-style: italic;
+    opacity: 0.9;
+    letter-spacing: 1px;
+    color: var(--accent-color);
+    font-weight: 400;
+}
+
+/* Right Side */
+.login-right {
+    flex: 1;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    animation: slideFromRight 0.6s ease-out;
+    position: relative;
+}
+
+/* Inner glow for right side */
+.login-right::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 48px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8);
+    pointer-events: none;
+}
+
+/* ===== FORM STYLES ===== */
+.form-container {
+    width: 100%;
+    max-width: 350px;
+    position: relative;
+    z-index: 2;
+}
+
+.form-container h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.form-container .subtitle {
+    color: var(--light-text);
+    font-size: 0.95rem;
+    margin-bottom: 1.8rem;
+}
+
+/* Form Groups */
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    color: var(--dark-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    background: #f8fafc;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+    background: white;
+}
+
+.form-group input::placeholder {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+/* Password Field */
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    padding-right: 3rem;
+}
+
+.toggle-pwd {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #94a3b8;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.toggle-pwd:hover {
+    color: var(--accent-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Form Row */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.8rem;
+    font-size: 0.9rem;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--light-text);
+    cursor: pointer;
+}
+
+.remember input[type="checkbox"] {
+    width: auto;
+    cursor: pointer;
+    accent-color: var(--accent-color);
+}
+
+.forgot-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.forgot-link:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* Login Button - Enhanced (matching homepage register button) */
+.login-btn {
+    width: 100%;
+    padding: 0.9rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 16px rgba(15, 23, 42, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.login-btn:hover::before {
+    left: 100%;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.3);
+}
+
+/* Register Text */
+.register-text {
+    text-align: center;
+    color: var(--light-text);
+    font-size: 0.95rem;
+}
+
+.register-text a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.register-text a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* Alerts - Enhanced */
+.alert {
+    padding: 0.8rem 1rem;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    animation: slideIn 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.alert i {
+    font-size: 1.1rem;
+}
+
+.alert.error {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-left-color: #b91c1c;
+}
+
+.alert.success {
+    background: #dcfce7;
+    color: var(--success-color);
+    border-left-color: var(--success-color);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Floating Animation */
+@keyframes floatLogo {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        max-width: 95%;
+        border-radius: 32px;
+    }
+    
+    .login-left {
+        padding: 2rem 1.5rem;
+    }
+    
+    .college-logo img {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .left-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .login-right {
+        padding: 2rem 1.5rem;
+    }
+    
+    .form-container {
+        max-width: 100%;
+    }
+    
+    .form-container h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Animations */
+@keyframes slideFromLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideFromRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Form elements staggered animation */
+.form-group {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.form-group:nth-child(1) { animation-delay: 0.2s; }
+.form-group:nth-child(2) { animation-delay: 0.3s; }
+.form-row { animation-delay: 0.4s; }
+.login-btn { animation-delay: 0.5s; }
+.register-text { animation-delay: 0.6s; }
