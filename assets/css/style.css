@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap');
+
+/* ===== RESET ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===== VARIABLES ===== */
+:root {
+    --primary: #2563eb;
+    --primary-light: #3b82f6;
+    --primary-soft: rgba(37,99,235,0.15);
+    --secondary: #475569;
+    --accent: #0ea5e9;
+    --background: #080e1a;
+    --surface: rgba(255,255,255,0.06);
+    --surface-hover: rgba(255,255,255,0.09);
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-light: #475569;
+    --border-light: rgba(255,255,255,0.09);
+    --border-hover: rgba(255,255,255,0.18);
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+    --shadow-md: 0 8px 32px rgba(0,0,0,0.4);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.5);
+    --shadow-blue: 0 8px 28px rgba(37,99,235,0.4);
+    --radius-lg: 28px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+    --transition: all 0.25s ease;
+}
+
+/* ===== BASE ===== */
+body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* ===== RICH BACKGROUND ===== */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 5%   0%,  rgba(37,99,235,0.45)  0%, transparent 45%),
+        radial-gradient(ellipse at 95% 100%,  rgba(14,165,233,0.35) 0%, transparent 45%),
+        radial-gradient(ellipse at 75%  15%,  rgba(124,58,237,0.25) 0%, transparent 38%),
+        radial-gradient(ellipse at 25%  85%,  rgba(16,185,129,0.18) 0%, transparent 38%);
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* Subtle grid texture */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+    background-size: 56px 56px;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main-content {
+    min-height: calc(100vh - 80px);
+    padding: 110px 20px 80px;
+}
+
+/* ===== WELCOME CARD ===== */
+.welcome-card {
+    background: var(--surface);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-radius: var(--radius-lg);
+    padding: 56px 52px 48px;
+    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.09);
+    text-align: center;
+    border: 1px solid var(--border-light);
+    animation: fadeInUp 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Inner glow accent */
+.welcome-card::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 320px; height: 320px;
+    background: radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 65%);
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.welcome-card::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 260px; height: 260px;
+    background: radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 65%);
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.welcome-card:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-hover);
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== COLLEGE BADGE ===== */
+.college-badge {
+    margin-bottom: 28px;
+}
+
+.college-badge .est {
+    display: inline-block;
+    background: rgba(37,99,235,0.2);
+    color: #93c5fd;
+    border: 1px solid rgba(147,197,253,0.25);
+    padding: 5px 18px;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.college-badge h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+}
+
+/* ===== WELCOME TITLE ===== */
+.welcome-title {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 22px;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #e2e8f0 0%, #60a5fa 35%, #a78bfa 65%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===== MOTTO ===== */
+.motto {
+    margin-bottom: 36px;
+}
+
+.motto .latin {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    font-style: italic;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+
+.motto .english {
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.action-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 44px;
+    flex-wrap: wrap;
+}
+
+.btn-login,
+.btn-register,
+.btn-dashboard {
+    padding: 12px 32px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px solid transparent;
+    font-family: inherit;
+    letter-spacing: 0.01em;
+}
+
+.btn-login {
+    background: rgba(255,255,255,0.07);
+    backdrop-filter: blur(12px);
+    border-color: var(--border-light);
+    color: var(--text-primary);
+}
+
+.btn-login:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+}
+
+.btn-register {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.45);
+}
+
+.btn-register:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(37,99,235,0.55);
+    filter: brightness(1.08);
+}
+
+.btn-dashboard {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.45);
+}
+
+.btn-dashboard:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(37,99,235,0.55);
+    filter: brightness(1.08);
+}
+
+/* ===== FEATURES MINI ===== */
+.features-mini {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 40px;
+    padding-top: 36px;
+    border-top: 1px solid var(--border-light);
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-secondary);
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(10px);
+    padding: 22px 10px;
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid var(--border-light);
+    text-align: center;
+    cursor: default;
+}
+
+.feature:hover {
+    background: rgba(37,99,235,0.14);
+    color: #93c5fd;
+    border-color: rgba(147,197,253,0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(37,99,235,0.2);
+}
+
+.feature i {
+    font-size: 1.25rem;
+    color: #60a5fa;
+    transition: var(--transition);
+}
+
+.feature:hover i {
+    color: #a5c8ff;
+    filter: drop-shadow(0 0 6px rgba(96,165,250,0.5));
+}
+
+.feature span {
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+    margin-top: 16px;
+    padding: 44px 52px;
+    background: var(--surface);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255,255,255,0.07);
+    border: 1px solid var(--border-light);
+    animation: fadeInUp 0.55s 0.12s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    transition: var(--transition);
+    text-align: center;
+}
+
+.about-section:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-hover);
+}
+
+.about-section h2 {
+    color: var(--text-primary);
+    margin-bottom: 14px;
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.about-section h2:after {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 2px;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.about-content p {
+    color: var(--text-secondary);
+    line-height: 1.85;
+    font-size: 0.95rem;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: #080e1a;
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 22px 20px;
+    margin-top: 0;
+    border-top: 1px solid var(--border-light);
+    position: relative;
+    z-index: 10;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.footer .motto {
+    color: #60a5fa;
+    font-style: italic;
+    font-size: 0.8rem;
+    opacity: 0.75;
+}
+
+/* ===== ALERTS ===== */
+.alert {
+    padding: 13px 18px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: slideIn 0.3s ease;
+    border: 1px solid transparent;
+    font-size: 0.9rem;
+    backdrop-filter: blur(12px);
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.alert-error {
+    background: rgba(239,68,68,0.12);
+    color: #fca5a5;
+    border-color: rgba(239,68,68,0.25);
+}
+
+.alert-success {
+    background: rgba(16,185,129,0.12);
+    color: #6ee7b7;
+    border-color: rgba(16,185,129,0.25);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .main-content { padding: 90px 16px 60px; }
+
+    .welcome-card { padding: 36px 24px 32px; }
+
+    .college-badge h1 { font-size: 1.25rem; }
+
+    .welcome-title { font-size: 1.9rem; }
+
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-login,
+    .btn-register,
+    .btn-dashboard {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .features-mini { grid-template-columns: repeat(2, 1fr); }
+
+    .about-section { padding: 32px 24px; }
+}
+
+@media (max-width: 480px) {
+    .features-mini { grid-template-columns: 1fr 1fr; }
+    .welcome-title { font-size: 1.7rem; }
+}
+
+/* ===== FIX SPACING BELOW NAVBAR FOR ALL STUDENT/ADMIN PAGES ===== */
+/* Remove large top padding from page containers */
+.dashboard-container,
+.notif-wrap,
+.profile-container,
+.history-container,
+.reservation-container {
+    padding-top: 1.5rem !important;
+}
+
+/* Ensure navbar has no extra margin */
+.student-navbar,
+.admin-navbar {
+    margin-bottom: 0 !important;
+}
+
+/* First element after navbar should start clean */
+body > .dashboard-container:first-of-type,
+body > .notif-wrap:first-of-type {
+    margin-top: 0;
+}
